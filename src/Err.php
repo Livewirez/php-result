@@ -3,6 +3,8 @@
 namespace Livewirez\PhpResult;
 
 use Throwable;
+use RuntimeException;
+use InvalidArgumentException;
 use Illuminate\Support\Traits\Macroable;
 
 /**
@@ -19,12 +21,10 @@ final readonly class Err implements Result
      * @param T|null $data
      */
     public function __construct(
-        public ?Throwable $error,
+        public Throwable $error,
         public mixed $data = null
     ) {
-        if ($error === null) {
-            throw new \InvalidArgumentException('Failure must have a non-null error.');
-        }
+        
     }
 
     public function isOk(): bool
@@ -39,7 +39,7 @@ final readonly class Err implements Result
 
     public function unwrap(): mixed
     {
-        throw new \RuntimeException('Cannot unwrap value from a Failure: ' . $this->error->getMessage());
+        throw new RuntimeException('Cannot unwrap value from a Failure: ' . $this->error->getMessage());
     }
 
     public function unwrapErr(): mixed

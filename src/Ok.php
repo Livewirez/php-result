@@ -3,6 +3,8 @@
 namespace Livewirez\PhpResult;
 
 use Throwable;
+use RuntimeException;
+use InvalidArgumentException;
 use Illuminate\Support\Traits\Macroable;
 
 /**
@@ -23,7 +25,7 @@ final readonly class Ok implements Result
         public readonly ?Throwable $error = null
     ) {
         if ($error !== null) {
-            throw new \InvalidArgumentException('Success cannot have a non-null error.');
+            throw new InvalidArgumentException('Success cannot have a non-null error.');
         }
     }
 
@@ -44,7 +46,7 @@ final readonly class Ok implements Result
 
     public function unwrapErr(): mixed
     {
-        throw new \RuntimeException('Cannot unwrap error from a Success.');
+        throw new RuntimeException('Cannot unwrap error from a Success.');
     }
 }
 
