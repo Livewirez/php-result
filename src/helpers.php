@@ -1,7 +1,8 @@
 <?php 
 
-use Throwable;
+namespace Livewirez\PhpResult;
 
+use Throwable;
 use Livewirez\PhpResult\Ok;
 use Livewirez\PhpResult\Err;
 
