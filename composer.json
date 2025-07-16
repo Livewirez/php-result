@@ -1,0 +1,28 @@
+{
+    "name": "livewirez/php-result",
+    "description": "Php version of rust's Result type which is the type used for returning and propagating errors. `https://doc.rust-lang.org/std/result/`",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Livewirez\\PhpResult\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Livewirez"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "illuminate/macroable": "^12.20"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
